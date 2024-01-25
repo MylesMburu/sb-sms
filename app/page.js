@@ -1,35 +1,35 @@
-import Link from 'next/link';
+import Image from "next/image";
+import IMG1 from "@/public/landing-page.png";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to the <span className="text-blue-600">School Management System</span>
-        </h1>
+    <div className="flex flex-col justify-between min-h-screen bg-gray-100">
+      
+      <main className="flex flex-col md:grid md:grid-cols-2 items-center justify-center flex-1 px-4 md:px-20 text-center">
+        <div className="px-6">
+          <h1 className="text-2xl md:text-6xl font-bold mt-10 md:mt-0">
+            Welcome to the <br/><span className="text-blue-600">SB School Management System</span>
+          </h1>
 
-        <p className="mt-3 text-2xl">
-          Your one-stop solution for managing academic and student needs.
-        </p>
-
-        <div className="mt-6 space-x-4">
-          <Link href="/academics/terms" className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-
-              Academics
-            
-          </Link>
-          <Link href="/students" className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
-
-              Students
-            
-          </Link>
-          
+          <p className="mt-3 text-xl md:text-2xl">
+            Your one-stop solution for managing your school needs.
+          </p>
         </div>
+        
+        <div className="mt-8 md:mt-12 px-6">
+          <Image
+            src={IMG1}
+            className="h-96 w-full object-fit md:rounded-lg"
+            alt="Landing page image"
+            placeholder="blur" // Optional: you can use a low-res version of your image here
+          />
+        </div>
+      
       </main>
 
       <footer className="flex items-center justify-center w-full h-24 border-t">
         <a
-          className="flex items-center justify-center"
+          className="flex items-center justify-center text-sm md:text-base text-gray-500 hover:text-gray-800"
           href="https://yourschool.com"
           target="_blank"
           rel="noopener noreferrer"

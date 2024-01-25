@@ -27,7 +27,7 @@ const StudentsPage = () => {
 
   return (
     <div>
-      <h1>Grade 2</h1>
+      <h1 className='font-bold px-4 py-3 text-xl'>Grade 2</h1>
       <StudentList students={students} />
     </div>
   );
