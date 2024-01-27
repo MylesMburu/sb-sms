@@ -3,10 +3,13 @@
 
 import React, { useEffect, useState } from 'react';
 import StudentList from '@/components/students/StudentList';
+import AddStudentModal from '@/components/students/AddStudentModal';
+
 // import { fetchStudents } from '../../api';
 
 const StudentsPage = () => {
   const [students, setStudents] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // fetchStudents().then(data => setStudents(data));
@@ -25,11 +28,20 @@ const StudentsPage = () => {
       ]);
   }, []);
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  }
+
   return (
     <div>
-      <h1 className='font-bold px-4 py-3 text-xl'>Grade 2</h1>
+      <div className='flex flex-col justify-center items-center md:flex-row md:justify-around py-3'>
+        <h1 className='font-bold px-4 py-3 text-xl'>Grade 2</h1>
+        <button onClick={handleOpenModal} className=" px-4 py-3 bg-blue-500 text-white rounded">Add Student</button>
+      </div>
       <StudentList students={students} />
+      <AddStudentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
+    
   );
 };
 
